@@ -1,0 +1,91 @@
+/* Example styles for the website */
+
+/* General styles */
+body {
+  font-family:'Courier New', Courier, monospace;
+  margin: 0;
+  padding: 0;
+  background-color: #488299;
+}
+
+header {
+  background-color: #2b6577;
+  color: white;
+  padding: 15px;
+  text-align: center;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 10px;
+  font-size: 18px;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* Scroll box styling */
+.scroll-box {
+  width: 80%;                /* Set width of the scroll box */
+  max-width: 600px;          /* Set a maximum width */
+  max-height: 600px;         /* Set maximum height of the scroll box */
+  overflow-y: auto;          /* Enable vertical scrolling */
+  border: 1px solid #ccc;    /* Add a border around the scroll box */
+  padding: 15px;
+  background-color: #f9f9f9; /* Light background color for better visibility */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: add a subtle shadow */
+}
+.flex-container {
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.card {
+  margin-bottom: 15px;
+}
+.search-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#searchBar {
+  flex-grow: 1;               /* Make the input take the available width */
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  outline: none;              /* Remove default outline */
+  transition: border-color 0.3s ease;
+}
+#searchBar:focus {
+  border-color: #94a17b;      /* Green border when focused */
+}
+#searchButton {
+  background-color: #b4b188;  /* Green background */
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+#searchButton:hover {
+  background-color: #c0b0a0;  /* Darker green on hover */
+}
+#resetButton {
+  background-color: #93aece;  /* Red background */
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Hover effect for reset button */
+#resetButton:hover {
+  background-color: #5d8297;  /* Darker red on hover */
+}
