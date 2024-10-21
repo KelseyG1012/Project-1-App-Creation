@@ -1,25 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Friends TV Show - Home</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+    font-family: customFont;
+    margin: 0;
+    padding: 0;
+    background-color: #488299;
+    background-image: url('images/wp4937790.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    }
+        nav {
+    text-align: left;
+    }
+    .container {
+        text-align: center;
+        color: azure;
+    }
+
+    </style>
 </head>
 <body id="home"> <!-- The body has an id for identifying the page in JavaScript -->
-    <header>
-        <h1>Friends TV Show - Home</h1>
-      
-    </header>
+    <div class="Home-Page">
+        <header>
+            <h1>Friends TV Show - Home</h1>
 
-    <main>
-        <p>
-            <nav>
-                <a href="episodes.html">Go to Episodes</a>
-            </nav>
-        </p>
-    </main>
+        </header>
 
-    <script src="./app.js"></script> <!-- Linking the single JavaScript file -->
+        <main>
+            <div class="container">
+                <h2>Welcome to the Friends TV Show App</h2>
+                <p>
+                    This app is dedicated to all fans of the iconic Friends TV show! Here you can explore
+                    detailed information about the main cast, including their roles, bios, and more.
+                </p>
+                <p>
+                    You can also dive into the episodes, learn more about the beloved characters,
+                    and relive some of the best moments from the show.
+                </p>
+                <p>
+                    Click the "View Cast" button to get started and check out the main cast members of Friends.
+                </p>
+            </div>
+            <u>
+                <p>
+                    <nav>
+                        <a href="episodes.html">Go to Episodes</a>
+
+                    </nav>
+                </p>
+                <p>
+                    <nav>
+                        <a href="cast.html">Cast Information</a>
+
+                    </nav>
+                </p>
+            </u>
+
+            <!-- <div class="container">
+                <h2>Welcome to the Friends TV Show App</h2>
+                <p>
+                    This app is dedicated to all fans of the iconic Friends TV show! Here you can explore
+                    detailed information about the main cast, including their roles, bios, and more.
+                </p>
+                <p>
+                    You can also dive into the episodes, learn more about the beloved characters,
+                    and relive some of the best moments from the show.
+                </p>
+                <p>
+                    Click the "View Cast" button to get started and check out the main cast members of Friends.
+                </p>
+            </div> -->
+
+
+        </main>
+
+        <script src="./app.js"></script> <!-- Linking the single JavaScript file -->
+    </div>
 </body>
 </html>

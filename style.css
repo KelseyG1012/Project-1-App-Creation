@@ -1,25 +1,29 @@
 /* Example styles for the website */
 
 /* General styles */
-body {
-  font-family:'Courier New', Courier, monospace;
-  margin: 0;
-  padding: 0;
-  background-color: #488299;
+@font-face {
+  font-family: customFont;
+  src: url(fonts/GABR.TTF);
+}
+@font-face {
+  font-family: pistachio;
+  src: url(fonts/PistachioFont.otf);
 }
 
+
 header {
-  background-color: #2b6577;
+  background-color:rgba(0, 0, 0, 0.1);
   color: white;
   padding: 15px;
   text-align: center;
 }
 
 nav a {
-  color: white;
+  color: rgb(228, 139, 23);
   text-decoration: none;
   margin: 0 10px;
-  font-size: 18px;
+  font-size: 20px;
+  text-align: left;
 }
 
 nav a:hover {
@@ -28,14 +32,19 @@ nav a:hover {
 
 /* Scroll box styling */
 .scroll-box {
+  font-family:pistachio;
+  color: #e4c098;
+  font-size: large;
+  text-align: left;
   width: 80%;                /* Set width of the scroll box */
   max-width: 600px;          /* Set a maximum width */
   max-height: 600px;         /* Set maximum height of the scroll box */
   overflow-y: auto;          /* Enable vertical scrolling */
-  border: 1px solid #ccc;    /* Add a border around the scroll box */
+  border: 1px solid #050505;
   padding: 15px;
-  background-color: #f9f9f9; /* Light background color for better visibility */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: add a subtle shadow */
+  background-color:rgb(100, 63, 21);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-width: thick;
 }
 .flex-container {
   display:flex;
@@ -56,7 +65,8 @@ nav a:hover {
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
-  font-size: 16px;
+  font-family: customFont;
+  font-size: 12px;
   outline: none;              /* Remove default outline */
   transition: border-color 0.3s ease;
 }
@@ -64,8 +74,9 @@ nav a:hover {
   border-color: #94a17b;      /* Green border when focused */
 }
 #searchButton {
-  background-color: #b4b188;  /* Green background */
+  background-color: #754c17;  /* Green background */
   color: white;
+  font-family: customFont;
   border: none;
   padding: 10px 15px;
   border-radius: 4px;
@@ -73,11 +84,12 @@ nav a:hover {
   transition: background-color 0.3s ease;
 }
 #searchButton:hover {
-  background-color: #c0b0a0;  /* Darker green on hover */
+  background-color: #8b4c0d;  /* Darker green on hover */
 }
 #resetButton {
-  background-color: #93aece;  /* Red background */
+  background-color: #6b0505;  /* Red background */
   color: white;
+  font-family: customFont;
   border: none;
   padding: 10px 15px;
   border-radius: 4px;
@@ -87,5 +99,7 @@ nav a:hover {
 
 /* Hover effect for reset button */
 #resetButton:hover {
-  background-color: #5d8297;  /* Darker red on hover */
+  background-color: #850808;  /* Darker red on hover */
 }
+
+

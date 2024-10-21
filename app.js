@@ -1,5 +1,10 @@
-// Define the API endpoint for Friends episodes
+
+// Define the API endpoints for Friends
+const castUrl = 'https://api.tvmaze.com/shows/431/cast';
 const episodesUrl = 'https://api.tvmaze.com/shows/431/episodes';
+
+// Episodes HTML
+
 let allEpisodes = []; // This will store all episodes fetched from the API
 
 // Function to fetch episodes from the API
@@ -18,6 +23,9 @@ function fetchEpisodes() {
 // Function to display episodes on the page
 function displayEpisodes(episodes) {
     const episodeList = document.getElementById('episodeList'); // Select the episode list container
+
+    if (!episodeList) return; // If the episode list doesn't exist, exit function
+
     episodeList.innerHTML = ''; // Clear any existing content
 
     // If no episodes are found, display a "No episodes found" message
@@ -59,25 +67,111 @@ function filterEpisodes(searchTerm) {
     displayEpisodes(filteredEpisodes); // Display the filtered episodes
 }
 
-// Add event listener for search button click
-document.getElementById('searchButton').addEventListener('click', () => {
-    const searchTerm = document.getElementById('searchBar').value.trim();
-    filterEpisodes(searchTerm); // Perform the search when the button is clicked
+// Event listeners for episode page
+function setupEpisodeEvents() {
+    const searchButton = document.getElementById('searchButton');
+    const searchBar = document.getElementById('searchBar');
+    const resetButton = document.getElementById('resetButton');
+
+    if (searchButton && searchBar && resetButton) {
+        searchButton.addEventListener('click', () => {
+            const searchTerm = searchBar.value.trim();
+            filterEpisodes(searchTerm); // Perform the search when the button is clicked
+        });
+
+        searchBar.addEventListener('keyup', (event) => {
+            if (event.key === 'Enter') {
+                const searchTerm = searchBar.value.trim();
+                filterEpisodes(searchTerm); // Perform the search when the 'Enter' key is pressed
+            }
+        });
+
+        resetButton.addEventListener('click', () => {
+            searchBar.value = ''; // Clear the search bar
+            displayEpisodes(allEpisodes); // Reset to display all episodes
+        });
+
+        // Call the fetchEpisodes function when the page loads
+        fetchEpisodes();
+    }
+}
+
+
+// Cast HTML
+
+document.addEventListener('DOMContentLoaded', () => {
+    fetch('https://api.tvmaze.com/shows/431/cast')
+        .then(response => response.json())
+        .then(data => {
+            displayCast(data);
+        })
+        .catch(error => {
+            console.error('Error fetching cast data:', error);
+        });
 });
 
-// Add event listener for 'Enter' key press in the search input field
-document.getElementById('searchBar').addEventListener('keyup', (event) => {
-    if (event.key === 'Enter') {
-        const searchTerm = document.getElementById('searchBar').value.trim();
-        filterEpisodes(searchTerm); // Perform the search when the 'Enter' key is pressed
+function displayCast(castData) {
+    const castList = document.querySelector('.cast-list');
+    castList.innerHTML = '';
+
+    castData.forEach(castMember => {
+        const castMemberDiv = document.createElement('div');
+        castMemberDiv.classList.add('cast-member');
+
+        const castMemberInner = document.createElement('div');
+        castMemberInner.classList.add('cast-member-inner');
+
+        const castImage = castMember.person.image ? castMember.person.image.medium : 'https://via.placeholder.com/150';
+        const frontHTML = `
+            <div class="cast-member-front">
+                <img src="${castImage}" alt="${castMember.person.name}">
+                <h2>${castMember.person.name}</h2>
+                <p>As ${castMember.character.name}</p>
+            </div>
+        `;
+
+        const backHTML = `
+            <div class="cast-member-back">
+                <h2>More Info</h2>
+                <p>Birthdate: ${castMember.person.birthday || 'N/A'}</p>
+                <p>Country: ${castMember.person.country ? castMember.person.country.name : 'N/A'}</p>
+            </div>
+        `;
+
+        // Create the front and back sides
+        const castMemberFront = document.createElement('div');
+        castMemberFront.innerHTML = frontHTML;
+
+        const castMemberBack = document.createElement('div');
+        castMemberBack.innerHTML = backHTML;
+
+        // Append both sides to the inner div
+        castMemberInner.appendChild(castMemberFront);
+        castMemberInner.appendChild(castMemberBack);
+
+        // Append the inner div to the cast member container
+        castMemberDiv.appendChild(castMemberInner);
+
+        // Append the cast member to the list
+        castList.appendChild(castMemberDiv);
+
+        // Add a click event to flip the card
+        castMemberDiv.addEventListener('click', () => {
+            castMemberDiv.classList.toggle('is-flipped');
+        });
+    });
+}
+
+// Detect if it's the episodes or cast page and run the appropriate logic
+document.addEventListener('DOMContentLoaded', () => {
+    const episodeList = document.getElementById('episodeList');
+    const castContainer = document.getElementById('castContainer');
+
+    if (episodeList) {
+        setupEpisodeEvents();
+    }
+
+    if (castContainer) {
+        fetchCast();
     }
 });
-
-// Add event listener for reset button click
-document.getElementById('resetButton').addEventListener('click', () => {
-    document.getElementById('searchBar').value = ''; // Clear the search bar
-    displayEpisodes(allEpisodes); // Reset to display all episodes
-});
-
-// Call the fetchEpisodes function when the page loads
-document.addEventListener('DOMContentLoaded', fetchEpisodes);
