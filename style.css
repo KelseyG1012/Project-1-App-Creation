@@ -9,7 +9,69 @@
   font-family: pistachio;
   src: url(fonts/PistachioFont.otf);
 }
-
+body {
+  font-family:pistachio;
+  background-color: #f0f0f0;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-image: url('images/Apartment.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+.container {
+  margin-top: 50px;
+  padding: 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  text-align: center;
+}
+h1 {
+  margin-bottom: 20px;
+  font-family: customFont;
+}
+.question {
+  margin-bottom: 20px;
+}
+input {
+  padding: 10px;
+  width: 100%;
+  margin-bottom: 10px;
+  font-family: pistachio;
+}
+button {
+  padding: 10px 20px;
+  background-color: #836f9e;
+  color: white;
+  border:#131116;
+  border-radius: 2px;
+  cursor: pointer;
+  font-family:'Courier New', Courier, sans-serif;
+  align-items:start;
+  border-style: solid;
+}
+button:hover {
+  background-color: #48327a;
+}
+.result {
+  margin-top: 20px;
+  font-weight: bold;
+}
+/* .hint {
+  margin-top: 10px;
+  font-style: italic;
+  color: #888;
+} */
+.next-question {
+  margin-top: 20px;
+  display:block; /* Hide the button initially */
+}
 
 header {
   background-color:rgba(0, 0, 0, 0.1);
@@ -18,34 +80,13 @@ header {
   text-align: center;
 }
 
-nav a {
-  color: rgb(228, 139, 23);
-  text-decoration: none;
-  margin: 0 10px;
-  font-size: 20px;
-  text-align: left;
-}
+
 
 nav a:hover {
   text-decoration: underline;
 }
 
-/* Scroll box styling */
-.scroll-box {
-  font-family:pistachio;
-  color: #e4c098;
-  font-size: large;
-  text-align: left;
-  width: 80%;                /* Set width of the scroll box */
-  max-width: 600px;          /* Set a maximum width */
-  max-height: 600px;         /* Set maximum height of the scroll box */
-  overflow-y: auto;          /* Enable vertical scrolling */
-  border: 1px solid #050505;
-  padding: 15px;
-  background-color:rgb(100, 63, 21);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  border-width: thick;
-}
+
 .flex-container {
   display:flex;
   justify-content: center;
@@ -55,51 +96,3 @@ nav a:hover {
 .card {
   margin-bottom: 15px;
 }
-.search-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-#searchBar {
-  flex-grow: 1;               /* Make the input take the available width */
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-family: customFont;
-  font-size: 12px;
-  outline: none;              /* Remove default outline */
-  transition: border-color 0.3s ease;
-}
-#searchBar:focus {
-  border-color: #94a17b;      /* Green border when focused */
-}
-#searchButton {
-  background-color: #754c17;  /* Green background */
-  color: white;
-  font-family: customFont;
-  border: none;
-  padding: 10px 15px;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-#searchButton:hover {
-  background-color: #8b4c0d;  /* Darker green on hover */
-}
-#resetButton {
-  background-color: #6b0505;  /* Red background */
-  color: white;
-  font-family: customFont;
-  border: none;
-  padding: 10px 15px;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-/* Hover effect for reset button */
-#resetButton:hover {
-  background-color: #850808;  /* Darker red on hover */
-}
-
-
